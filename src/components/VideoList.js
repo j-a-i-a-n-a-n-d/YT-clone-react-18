@@ -1,16 +1,15 @@
-import React from "react";
+import react from "react";
+import { Grid } from "@mui/material";
+import VideoItem from "./VideoItem";
 
-class SearchBar extends React.Component {
-    render() {
-        return (
-        <div>
-                <div>Video List</div>
-                <div>Video List</div>
-                <div>Video List</div>
-                <div>Video List</div>
-                <div>Video List</div>
-        </div>);
+const VideoList = () => {
+    // destructuring the prop by curly braces 
+    const Bideos = ({ videos }) => {
+        console.log(videos);
+        const listofvid = videos.map((video) => <VideoItem />)
+        return listofvid
     }
+
 }
 
-export default SearchBar;
+export default VideoList;

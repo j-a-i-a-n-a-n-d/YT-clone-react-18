@@ -20,7 +20,7 @@ class App extends React.Component {
                 q : searchTerm
             }
         })
-        this.setState({ videos: response.data.items, selectedVideo: response.data.items[0].id.videoId }, () => {
+        this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] }, () => {
             console.log(this.state.selectedVideo);}); 
         //this.setState = ({ videos: response.data.items, selectedVideo: response.data.items[0].id.videoId });
         //console.log(response.data.items[0].id.videoId);
@@ -29,7 +29,7 @@ class App extends React.Component {
     };
     render()
     {
-        const { selectedVideo } = this.state;
+        const { videos,selectedVideo } = this.state;
         //console.log("hello" , selectedVideo);
         return (<Grid container justifyContent="center" spacing={16} style={{ background: 'blue' }}>
             <Grid item xs={12}>
@@ -41,7 +41,7 @@ class App extends React.Component {
                         <VideoDetail video={selectedVideo} />
                     </Grid>
                     <Grid item xs={4}>
-                        <VideoList />
+                        <VideoList videos={videos} />
                     </Grid>
                 </Grid>
             </Grid>
