@@ -6,9 +6,32 @@ import youtube from "./api/youtube";
 import SearchBar from "./components/SearchBar";
 import VideoDetail from "./components/VideoDetail";
 import VideoList from "./components/VideoList";
-import { blue } from "@mui/material/colors";
 
-class App extends React.Component{
+class App extends React.Component {
+    state = {
+        videos: [],
+        selectedVideo: null,
+    }
+
+
+    handleSubmit = async (searchTerm) => {
+        const response = await youtube.get('search', {
+            params: {
+                part: 'snippet',
+                maxResults: 50,
+                key: 'AIzaSyCKN1xJqOAamqQjo4WKrav0M2f4vy_8dHw',
+                q : searchTerm
+            }
+        }
+        )
+        
+
+        console.log(response.data.items[0].id.videoId);
+        this.setState = ({
+            videos: response.data.items,
+            selectedVideo: response.data.items[0]
+        });
+    };
     render()
     {
         return (<Grid container justifyContent="center" spacing={16} style={{ background: 'blue' }}>
@@ -18,7 +41,8 @@ class App extends React.Component{
                         <SearchBar onFormSubmit={this.handleSubmit} />
                     </Grid>
                     <Grid item xs={8}>
-                        <VideoDetail />
+                        {console.log(this.state.selectedVideo)}
+                        <VideoDetail video={this.state.selectedVideo} />
                     </Grid>
                     <Grid item xs={4}>
                         <VideoList />
