@@ -44,5 +44,7 @@ data = [
         ]
       }      
 ]
+//const v_thumbnail = video.snippet.thumbnails.medium.url;
+//const v_title = video.snippet.title;
 console.log(data[0].items[0].id.videoId)
 //youtube video id 

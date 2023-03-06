@@ -1,15 +1,12 @@
-import react from "react";
+import React from "react";
 import { Grid } from "@mui/material";
 import VideoItem from "./VideoItem";
 
-const VideoList = () => {
-    // destructuring the prop by curly braces 
-    const Bideos = ({ videos }) => {
-        console.log(videos);
-        const listofvid = videos.map((video) => <VideoItem />)
-        return listofvid
-    }
-
+const VideoList = ({videos,onVideoSelect}) => {
+    // destructuring the prop by curly braces
+    const list_of_videos = videos.map((video, id)  => <VideoItem onVideoSelect={onVideoSelect} key = {id} video={video} />) 
+    return (
+        <Grid container spacing={10}>{list_of_videos}</Grid>);
 }
 
 export default VideoList;
