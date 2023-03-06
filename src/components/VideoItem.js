@@ -9,8 +9,8 @@ const VideoItem = ({ video, onVideoSelect }) =>
     <Grid item xs = {7}>
         <Grid style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onVideoSelect(video)} >
             <Grid>
-            <img style={{marginRight:'20px'}} src = {v_thumbnail}></img>
-                <div><center>{v_title}</center></div>
+                    <img style={{ marginRight: '20px',borderRadius:'8px' }} src={v_thumbnail} />
+                <div style={{paddingLeft:'2px'}}>{v_title}</div>
             </Grid>
         </Grid>
     </Grid>);

@@ -26,9 +26,9 @@ class App extends React.Component {
     render()
     {
         const { videos,selectedVideo } = this.state;
-        return (<Grid container justifyContent="center" spacing={3}>
-            <Grid item xs={11}>
-                <Grid container spacing={16}>
+        return (<Grid container justifyContent="center" spacing={3} marginTop='-10px'>
+            <Grid item xs={11} >
+                <Grid container spacing={16} paddingLeft='-10px'>
                     <Grid item xs={12}>
                         <SearchBar onFormSubmit={this.handleSubmit} />
                     </Grid>
