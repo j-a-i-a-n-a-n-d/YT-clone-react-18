@@ -1,18 +1,18 @@
-import { Grid, Paper, Typography } from "@mui/material";
+import { Grid, Paper} from "@mui/material";
 import React from "react";
 
-const VideoItem = ({ video, onVideoSelect }) => {
+const VideoItem = ({ video, onVideoSelect }) =>
+{
     const v_thumbnail = video.snippet.thumbnails.medium.url;
     const v_title = video.snippet.title;
     return (
-    <Grid item xs = {12}>
-        <Paper style = {{display:'flex', alignItems:'center', cursor:'pointer'}} onClick = {()=>onVideoSelect(video)} >
+    <Grid item xs = {7}>
+        <Grid style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onVideoSelect(video)} >
+            <Grid>
             <img style={{marginRight:'20px'}} src = {v_thumbnail}></img>
-            <Typography variant="subtitle2">
-                <b>{v_title}</b>
-            </Typography>
-        </Paper>
+                <div><center>{v_title}</center></div>
+            </Grid>
+        </Grid>
     </Grid>);
 }
-
 export default VideoItem;

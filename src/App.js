@@ -11,10 +11,7 @@ class App extends React.Component {
         selectedVideo: null,
     }
 
-    onVideoSelect = video => {
-        this.setState({ selectedVideo: video }, () =>
-            console.log(this.state.selectedVideo));
-    }
+    onVideoSelect = video => {this.setState({ selectedVideo: video }, () =>{});}
     handleSubmit = async (searchTerm) => {
         const response = await youtube.get('search', {
             params: {
@@ -24,19 +21,13 @@ class App extends React.Component {
                 q : searchTerm
             }
         })
-        this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] }, () => {
-            console.log(this.state.selectedVideo);}); 
-        //this.setState = ({ videos: response.data.items, selectedVideo: response.data.items[0].id.videoId });
-        //console.log(response.data.items[0].id.videoId);
-        //console.log(response);
-        //console.log(this.state.selectedVideo)
+        this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] }, () => {}); 
     };
     render()
     {
         const { videos,selectedVideo } = this.state;
-        //console.log("hello" , selectedVideo);
-        return (<Grid container justifyContent="center" spacing={16} style={{ background: 'blue' }}>
-            <Grid item xs={12}>
+        return (<Grid container justifyContent="center" spacing={3}>
+            <Grid item xs={11}>
                 <Grid container spacing={16}>
                     <Grid item xs={12}>
                         <SearchBar onFormSubmit={this.handleSubmit} />
@@ -52,8 +43,4 @@ class App extends React.Component {
         </Grid>)
     }
 }
-
-//const App = () => {
-//    return <div>Hi there!</div>;
-//};
 export default App

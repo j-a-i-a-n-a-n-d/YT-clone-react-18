@@ -1,34 +1,25 @@
 import React from "react";
-import { Paper, TextField, Typography } from "@mui/material";
-
-//class VideoDetail extends React.Component {
-//    render() {
-//        return <div>Video Detail</div>;
-//    }
-//}
-
+import { Paper, Typography } from "@mui/material";
 
 const VideoDetail = ({ video }) => {
     console.log(video);
     if (!video) return (<div>Oh Snap Loading ...</div>);
     else {
-        //video id only fetched 
         console.log(video);
         const videoSource = 'https://www.youtube.com/embed/' + video.id.videoId;
         console.log(videoSource);
         return (
-            <React.Fragment>
-                <Paper elevation={0} style={{ height: '100%' }}> {/*style={{ height: '100%' }}*/}
-                    <iframe height="50%" width="100%" title="Video Player" src={videoSource} />
+            <>
+                <Paper elevation={0} style={{ height: '60%' }}>
+                    <iframe height="50%" width="100%" title="Video_Player" src={videoSource} />
                 </Paper>
-                <Paper elevation={2} style={{ padding: '15px' }}>
+                <Paper elevation={2} style={{ padding: '5px' }}>
                     <Typography variant="h4">{video.snippet.title} - {video.snippet.channelTitle}</Typography>
                     <Typography variant="subtitle1">{video.snippet.channelTitle}</Typography>
                     <Typography variant="subtitle2">{video.snippet.description}</Typography>
                 </Paper>
-            </React.Fragment>
+            </>
         )
     }
 };
-
 export default VideoDetail;
