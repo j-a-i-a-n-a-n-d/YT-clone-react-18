@@ -23,6 +23,10 @@ class App extends React.Component {
         })
         this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] }, () => {}); 
     };
+    componentDidMount()
+    {
+        this.handleSubmit('top hits');
+    }
     render()
     {
         const { videos,selectedVideo } = this.state;
